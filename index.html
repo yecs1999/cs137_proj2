@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vending Cars - Car Buying Made Simple</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="banner">
+            <h1>Vending Cars</h1>
+            <div class="slogan">
+                The lowest priced cars anywhere
+            </div>
+        </div>
+        <div class="sidebar"> 
+            <div class="info">
+                <h2>About</h2>
+                <p>Here at Vending Cars we are committed to streamlining your car buying experience by making shopping for one as easy as a single click!
+                    No more haggling with third party sellers or shady dealerships, we guarantee the lowest buy it now prices anywhere on the web. All our vehicles are certified pre-owned
+                    And come with a 1 Year warranty so you can drive at ease knowing you got the best deal</p>
+            </div>
+            <div class="links">
+                <h2>Links</h2>
+                <ul>
+                    <li><a href="https://www.cars.com">cars.com</a></li>
+                    <li><a href="https://www.cargurus.com">cargurus.com</a></li>
+                    <li><a href="https://www.carmax.com">carmax.com</a></li>
+                </ul>
+            </div>
+            <div class="contact">
+                <h2>Contact info</h2>
+                <p>
+                    Donald Bren Hall, 6210, Irvine, CA 92697 <br>
+                    Phone#: (949)-824-7427 <br>
+                    Christopher Ye: Student# 93031221 <br>
+                    Zhen Li: Student# 84257555 <br>
+                    Emerson Chow: Student# 29527073 <br>
+                    Luke Falcone: Student# 26133003 <br>
+                </p>
+            </div>
+        </div>
+        <script src="car_info.js" type="text/javascript"></script>
+        <div class="categories">
+            <table id="car_table">
+                <script>var resp = getXML(xmlPath);
+                        var catdict = {0: "sports", 1: "hatch", 2: "sedan", 3: "suv", 4: "minivan"};
+                        var tbody = "<thead><tr><th>Sports</th><th>Hatch</th><th>Sedan</th><th>SUV</th><th>Minivan</th></tr></thead><tbody>";
+                        for (var j=0; j < 2; j++){
+                            var categories = resp.documentElement.childNodes;  
+                            tbody += "<tr>";
+                            for (var i = 0; i< categories.length; i++){
+                                var cars = categories[i].childNodes;
+                                var imgpid = cars[j].getElementsByTagName("pid")[0].innerHTML;
+                                var path = "./img/" + catdict[i] + "/" + imgpid + "/" + "1.jpg";
+                                tbody += "<td><a href=car_info.html?pid=" + imgpid + "><img src=" + path + " width=250 height=250></a><b>" + cars[j].getElementsByTagName("make")[0].innerHTML + " " + cars[j].getElementsByTagName("model")[0].innerHTML + " " +
+                                            cars[j].getElementsByTagName("year")[0].innerHTML + "<br>$" + cars[j].getElementsByTagName("price")[0].innerHTML + "</b></td>";
+                            }tbody += "</tr>";
+                        }tbody += "</tbody>";
+                        document.getElementById("car_table").innerHTML = tbody;
+                </script>
+            </table>
+        </div>
+    </body>
+
+</html>

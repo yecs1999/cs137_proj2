@@ -1,0 +1,142 @@
+h1{
+    padding-top: 5px;
+    font-size: 55px;
+    padding: 0px;
+    margin:0px;
+    margin-left: 100px;
+    height:55px;
+    width: 350px;
+    float: none;
+    color: white;
+}.slogan{
+    color: white;
+    float: right;
+    margin-right: 10px;
+    font-size:20px;
+}.banner{
+    margin: left;
+    float: left;
+    margin-left: 300px;
+    width: 800px;
+    height: 100px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    padding-left:100px;
+    background: #547191 url(./templates/car.png) no-repeat left;
+    font-family: "Palatino Linotype";
+}
+
+div.sidebar{
+    background-color: #9abfe8;
+    border: solid black 2px;
+    margin-right: 120px;
+    width: 350px;
+    height: 700px;
+    float: right;
+    font-family: "Palatino Linotype";
+}
+info{
+    position: absolute;
+}
+links{
+    position: absolute;
+}
+contact{
+    position: absolute;
+}
+div.info h2{
+    width: 350px;
+    height: 10px;
+    text-align: center;
+    padding-top: 5px;
+    font-family: inherit;
+}
+div.info p{
+    margin-left: 10px;
+    margin-top: 30px;
+    width: 330px;
+    height: 225px;
+    text-align: center;
+    text-justify: left;
+    font-family: inherit;
+}
+
+div.links h2{
+    margin-right: inherit;
+    width: 350px;
+    height: 10px;
+    text-align: center;
+    font-family: inherit;
+}
+div.links ul{
+    margin-top: 30px;
+    height: 100px;
+}
+div.contact h2{
+    margin-right: inherit;
+    width: 350px;
+    height: 10px;
+    text-align: center;
+    font-family: inherit;
+}
+div.contact p{
+    margin-left: 10px;
+    margin-top: 30px;
+    width: 330px;
+    height: 175px;
+    text-justify: left;
+    text-align: left;
+    font-family: inherit;
+}
+
+div.categories{
+    padding-top: 120px;
+    margin-left: 55px;
+    width: 1300px;
+    height: 90vh;
+}
+
+div.categories table{
+    background-color: #c3d6eb;
+    table-layout: fixed;
+    width: 100%;
+    border: solid #547191 2px;
+}
+div.categories thead{
+    border: solid #547191 2px;
+}
+div.categories th{
+    border: solid #547191 2px;
+    height: 30px;
+}
+div.categories tbody{
+    border: solid #547191 2px;
+}
+div.categories td{
+    text-align: center;
+    border: solid #547191 2px;
+    height: 250px;
+    width: 250px;
+}
+img:hover {
+    position: relative;
+    height: 480px;
+    width: 640px;
+}
+
+div.checkout h2{
+    margin-top: 100px;
+    text-align: center;
+    font-family: inherit;
+}
+div.checkout p{
+    text-align: center;
+}
+div.checkout form{
+    margin-top: 0px;
+    line-height: 1.5;
+    display: inline-block;
+    text-align: left;
+    font-family: inherit;
+}

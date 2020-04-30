@@ -1,0 +1,73 @@
+h1{
+    padding-top: 5px;
+    font-size: 55px;
+    padding: 0px;
+    margin:0px;
+    margin-left: 100px;
+    height:55px;
+    width: 350px;
+    float: none;
+    color: white;
+}
+.slogan{
+    color: white;
+    float: right;
+    margin-right: 10px;
+    font-size:20px;
+}
+.banner{
+    margin: left;
+    float: left;
+    margin-left: 200px;
+    width: 800px;
+    height: 100px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    padding-left:100px;
+    background: #547191 url(./templates/car.png) no-repeat left; 
+    font-family: "Palatino Linotype";
+}
+.images
+{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 1200px;
+    margin-left: 150px;
+    display: inline-block;   
+}
+.description
+{
+    margin-left: 20%;
+}
+table
+{
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+td, th
+{
+    text-align: center;
+    border: 1px solid black;
+    padding: 15px;
+    width: 400px;
+}
+
+.description th
+{
+    text-align: center;
+    color: #547191;
+    font-size: xx-large;
+}
+
+.buttonDiv
+{
+    padding-top: 50px;
+}
+#orderButton
+{
+    background-color: lightskyblue;
+    margin: auto;
+    display: block;
+    font-size: x-large;
+}

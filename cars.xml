@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?><cars><sports><car><pid>csp10</pid><make>Chevrolet</make><model>Corvette Z06</model><trim>LZ3</trim><color>Yellow</color><year>2016</year><odo>19000</odo><gearbox>Automatic</gearbox><engine>6.2L 8cyl</engine><price>60000</price><location>Tustin, CA</location><description>
+                One owner example, Highway miles, AC, NAV, Supercharger, Heated Leather Seats, 20in Alloy Wheels, Paddle Shifters, Sunroof
+            </description></car><car><pid>csp11</pid><make>Lotus</make><model>Esprit</model><trim>V8</trim><color>Silver</color><year>2003</year><odo>50000</odo><gearbox>Manual</gearbox><engine>3.5L 8cyl</engine><price>40000</price><location>Scottsdale, AZ</location><description>
+                Family owned for 17 years, mostly highway miles, always maintained at lotus dealership. Very rare twin turbo v8 version, this is one of the last
+                affordable exotic cars.
+            </description></car></sports><hatch><car><pid>ch10</pid><make>Honda</make><model>Fit</model><trim>Sport</trim><color>Blue</color><year>2011</year><odo>90000</odo><gearbox>Manual</gearbox><engine>1.5L 4cyl</engine><price>5300</price><location>Oakland, CA</location><description>
+                Commuter car, lots of space, folding seats, sport trim with zippy performance, always serviced on time, fuel efficient, very reliable.
+            </description></car><car><pid>ch11</pid><make>Kia</make><model>Rio 4DR Hatchback</model><trim>LX</trim><color>Red</color><year>2014</year><odo>40000</odo><gearbox>Manual</gearbox><engine>1.6L 4cyl</engine><price>7500</price><location>Washington, DC</location><description>
+                Reliable car, Economic 35mpg, electric windows, beige interior, cargo net, cargo tray, carpet floor mats.
+            </description></car></hatch><sedan><car><pid>cse10</pid><make>Ford</make><model>Fusion</model><trim>SE</trim><color>Black</color><year>2017</year><odo>9800</odo><gearbox>Automatic</gearbox><engine>1.5L 4cyl</engine><price>14000</price><location>Milpitas, CA</location><description>
+                Sunroof, NAV/GPS, Backup Camera, Black leather interior, heated front seats, ecoboost 30mpg combined.
+            </description></car><car><pid>cse11</pid><make>Toyota</make><model>Camry</model><trim>XLE</trim><color>White</color><year>2007</year><odo>120000</odo><gearbox>Automatic</gearbox><engine>3.5L 6cyl</engine><price>6000</price><location>Boise, ID</location><description>
+                One owner, powerful engine, recently serviced, v6 33mpg combined, GPS/NAV.
+            </description></car></sedan><suv><car><pid>csu10</pid><make>Kia</make><model>Sportage AWD</model><trim>EX</trim><color>Black</color><year>2013</year><odo>73000</odo><gearbox>Automatic</gearbox><engine>2.4L 4cyl</engine><price>10000</price><location>Chicago, IL</location><description>
+                AWD model, leather seats, heated front seats, Sirius traffic, push-button start, panoramic moonroof, homelink.
+            </description></car><car><pid>csu11</pid><make>Cadillac</make><model>Escalade</model><trim>Platinum</trim><color>Silver</color><year>2018</year><odo>51800</odo><gearbox>Automatic</gearbox><engine>6.2L 8cyl</engine><price>52300</price><location>Little Rock, AR</location><description>
+                4WD, black leather seats, 16 speaker sound system, 3rd row seating, split bench, adaptive cruise control, SiriusXM, lane change assist, adaptive electronic suspension.
+            </description></car></suv><minivan><car><pid>cmi10</pid><make>Honda</make><model>Odyssey</model><trim>EX</trim><color>Grey</color><year>2013</year><odo>77000</odo><gearbox>Automatic</gearbox><engine>3.5L 6cyl</engine><price>11200</price><location>Atlanta, GA</location><description>
+                27 highway mpg, bluetooth connectivity, CD/DVD player, premium sound system, electric tilt wheel.
+            </description></car><car><pid>cmi11</pid><make>Chrysler</make><model>Town and Country</model><trim>Touring</trim><color>White</color><year>2009</year><odo>140200</odo><gearbox>Automatic</gearbox><engine>3.6L 6cyl</engine><price>5720</price><location>Gary, IN</location><description>
+                keyless entry, DVD player, usb audio interface, power liftgate, folding mirrors, power sliding doors, rear AC, third row seating, movable rows.
+            </description></car></minivan></cars>
