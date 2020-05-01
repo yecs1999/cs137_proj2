@@ -1,3 +1,17 @@
+<?php
+
+    //run mysqladmin -u root password password in the terminal for XAMPP before this line, or set password to whatever you want and change password below
+    $dbcon = new PDO("mysql:host=localhost;dbname=cars", 'root', 'password');
+    //$cars = "select * from cardata";
+    $cats = "select * from carcategories group by category order by category";
+    //$carstmt = $dbcon->prepare($cars);
+    $catstmt = $dbcon->prepare($cats);
+    //$carstmt->execute();
+    $catstmt->execute();
+    //$rs_cars = $carstmt->fetchAll();
+    $rs_cats = $catstmt->fetchAll();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -41,24 +55,31 @@
         <script src="car_info.js" type="text/javascript"></script>
         <div class="categories">
             <table id="car_table">
-                <script>var resp = getXML(xmlPath);
-                        var catdict = {0: "sports", 1: "hatch", 2: "sedan", 3: "suv", 4: "minivan"};
-                        var tbody = "<thead><tr><th>Sports</th><th>Hatch</th><th>Sedan</th><th>SUV</th><th>Minivan</th></tr></thead><tbody>";
-                        for (var j=0; j < 2; j++){
-                            var categories = resp.documentElement.childNodes;  
-                            tbody += "<tr>";
-                            for (var i = 0; i< categories.length; i++){
-                                var cars = categories[i].childNodes;
-                                var imgpid = cars[j].getElementsByTagName("pid")[0].innerHTML;
-                                var path = "./img/" + catdict[i] + "/" + imgpid + "/" + "1.jpg";
-                                tbody += "<td><a href=car_info.html?pid=" + imgpid + "><img src=" + path + " width=250 height=250></a><b>" + cars[j].getElementsByTagName("make")[0].innerHTML + " " + cars[j].getElementsByTagName("model")[0].innerHTML + " " +
-                                            cars[j].getElementsByTagName("year")[0].innerHTML + "<br>$" + cars[j].getElementsByTagName("price")[0].innerHTML + "</b></td>";
-                            }tbody += "</tr>";
-                        }tbody += "</tbody>";
-                        document.getElementById("car_table").innerHTML = tbody;
-                </script>
+                <thead><tr><th>Hatch</th><th>Minivan</th><th>Sedan</th><th>Sports</th><th>SUV</th></tr></thead>
+                <tbody>
+                    <?php
+                    for ($j = 0; $j < 2; $j++){  
+                        ?> <tr> 
+                        <?php
+                        for ($i = 0; $i < sizeof($rs_cats); $i++){
+                            $category = $rs_cats[$i]['category'];
+                            $carRowQuery = "Select cardata.*, carimages.main_img from cardata left join carimages on carimages.pid = cardata.pid 
+                            where category = :category limit 1 offset :pos ";
+                            $carstmt = $dbcon->prepare($carRowQuery);
+                            $carstmt->bindParam(':category', $category);
+                            $carstmt->bindParam(':pos', $j, PDO::PARAM_INT);
+                            $carstmt->execute();
+                            $rs_car = $carstmt->fetchAll()[0];
+                            ?> <td><a href=car_info.html?pid=<?=$rs_car['pid']?>><img src=<?=$rs_car['main_img']?> width=250 height=250></a>
+                            <b><?=$rs_car['make'], $rs_car['model'], $rs_car['year']?><br>$ <?=$rs_car['price']?></b></td>
+                            <?php
+                        } ?> </tr>  <?php
+                    } ?> </tbody>
             </table>
         </div>
     </body>
 
 </html>
+<?php
+$dbcon = null;
+?>
