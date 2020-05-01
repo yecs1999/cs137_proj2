@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2020 at 05:18 AM
+-- Generation Time: May 01, 2020 at 07:52 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -20,6 +20,33 @@ SET time_zone = "+00:00";
 --
 -- Database: `cars`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `carcategories`
+--
+
+CREATE TABLE `carcategories` (
+  `category` varchar(20) NOT NULL,
+  `pid` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `carcategories`
+--
+
+INSERT INTO `carcategories` (`category`, `pid`) VALUES
+('sports', 10),
+('sports', 11),
+('hatch', 12),
+('hatch', 13),
+('sedan', 14),
+('sedan', 15),
+('suv', 16),
+('suv', 17),
+('minivan', 18),
+('minivan', 19);
 
 -- --------------------------------------------------------
 
@@ -111,6 +138,12 @@ INSERT INTO `carimages` (`pid`, `image`) VALUES
 --
 
 --
+-- Indexes for table `carcategories`
+--
+ALTER TABLE `carcategories`
+  ADD KEY `pid` (`pid`);
+
+--
 -- Indexes for table `cardata`
 --
 ALTER TABLE `cardata`
@@ -125,6 +158,12 @@ ALTER TABLE `carimages`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `carcategories`
+--
+ALTER TABLE `carcategories`
+  ADD CONSTRAINT `carcategories_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `cardata` (`pid`);
 
 --
 -- Constraints for table `carimages`
