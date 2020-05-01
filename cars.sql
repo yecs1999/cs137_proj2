@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2020 at 07:52 AM
+-- Generation Time: May 01, 2020 at 09:47 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -94,44 +94,26 @@ INSERT INTO `cardata` (`category`, `pid`, `make`, `model`, `trim`, `color`, `yea
 
 CREATE TABLE `carimages` (
   `pid` int(10) NOT NULL,
-  `image` varchar(200) NOT NULL
+  `main_img` varchar(200) NOT NULL,
+  `sub_img` varchar(200) NOT NULL,
+  `int_img` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `carimages`
 --
 
-INSERT INTO `carimages` (`pid`, `image`) VALUES
-(10, './img/sports/csp10/1.jpg'),
-(10, './img/sports/csp10/2.jpg'),
-(10, './img/sports/csp10/3.jpg'),
-(11, './img/sports/csp11/1.jpg'),
-(11, './img/sports/csp11/2.jpg'),
-(11, './img/sports/csp11/3.jpg'),
-(12, './img/hatch/ch10/1.jpg'),
-(12, './img/hatch/ch10/2.jpg'),
-(12, './img/hatch/ch10/3.jpg'),
-(13, './img/hatch/ch11/1.jpg'),
-(13, './img/hatch/ch11/2.jpg'),
-(13, './img/hatch/ch10/3.jpg'),
-(14, './img/sedan/cse10/1.jpg'),
-(14, './img/sedan/cse10/2.jpg'),
-(14, './img/sedan/cse10/3.jpg'),
-(15, './img/sedan/cse11/1.jpg'),
-(15, './img/sedan/cse11/2.jpg'),
-(15, './img/sedan/cse11/3.jpg'),
-(16, './img/suv/csu10/1.jpg'),
-(16, './img/suv/csu10/2.jpg'),
-(16, './img/suv/csu10/3.jpg'),
-(17, './img/suv/csu11/1.jpg'),
-(17, './img/suv/csu11/2.jpg'),
-(17, './img/suv/csu11/3.jpg'),
-(18, './img/minivan/cmi10/1.jpg'),
-(18, './img/minivan/cmi10/2.jpg'),
-(18, './img/minivan/cmi10/3.jpg'),
-(18, './img/minivan/cmi11/1.jpg'),
-(18, './img/minivan/cmi11/2.jpg'),
-(18, './img/minivan/cmi11/3.jpg');
+INSERT INTO `carimages` (`pid`, `main_img`, `sub_img`, `int_img`) VALUES
+(10, './img/sports/csp10/1.jpg', './img/sports/csp10/2.jpg', './img/sports/csp10/3.jpg'),
+(11, './img/sports/csp11/1.jpg', './img/sports/csp11/2.jpg', './img/sports/csp11/3.jpg'),
+(12, './img/hatch/ch10/1.jpg', './img/hatch/ch10/2.jpg', './img/hatch/ch10/3.jpg'),
+(13, './img/hatch/ch11/1.jpg', './img/hatch/ch11/2.jpg', './img/hatch/ch11/3.jpg'),
+(14, './img/sedan/cse10/1.jpg', './img/sedan/cse10/2.jpg', './img/sedan/cse10/3.jpg'),
+(15, './img/sedan/cse11/1.jpg', './img/sedan/cse11/2.jpg', './img/sedan/cse11/3.jpg'),
+(16, './img/suv/csu10/1.jpg', './img/suv/csu10/2.jpg', './img/suv/csu10/3.jpg'),
+(17, './img/suv/csu11/1.jpg', './img/suv/csu11/2.jpg', './img/suv/csu11/3.jpg'),
+(18, './img/minivan/cmi10/1.jpg', './img/minivan/cmi10/2.jpg', './img/minivan/cmi10/3.jpg'),
+(19, './img/minivan/cmi11/1.jpg', './img/minivan/cmi11/2.jpg', './img/minivan/cmi11/3.jpg');
 
 --
 -- Indexes for dumped tables
