@@ -1,7 +1,6 @@
-<?php
 
-    //run mysqladmin -u root password password in the terminal for XAMPP before this line, or set password to whatever you want and change password below
-    $dbcon = new PDO("mysql:host=localhost;dbname=cars", 'root', 'password');
+<?php
+    include 'database.php';
     //$cars = "select * from cardata";
     $cats = "select * from carcategories group by category order by category";
     //$carstmt = $dbcon->prepare($cars);
@@ -70,9 +69,10 @@
                             $carstmt->bindParam(':pos', $j, PDO::PARAM_INT);
                             $carstmt->execute();
                             $rs_car = $carstmt->fetchAll()[0];
-                            ?> <td><a href=car_info.html?pid=<?=$rs_car['pid']?>><img src=<?=$rs_car['main_img']?> width=250 height=250></a>
+                            ?> <td><a href=car_info.php?pid=<?=$rs_car['pid']?>><img src=<?=$rs_car['main_img']?> width=250 height=250></a>
                             <b><?=$rs_car['make'], $rs_car['model'], $rs_car['year']?><br>$ <?=$rs_car['price']?></b></td>
                             <?php
+                            $carstmt->closeCursor();
                         } ?> </tr>  <?php
                     } ?> </tbody>
             </table>
@@ -81,5 +81,5 @@
 
 </html>
 <?php
-$dbcon = null;
+    $catstmt->closeCursor();
 ?>

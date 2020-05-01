@@ -10,9 +10,10 @@ var info;
 function init()
 {
     let pid = getPID();
+    console.log(pid)
     let resp = getXML(xmlPath);
     let car = getCar(resp, pid);
-    info = initInfoDict(car);
+    let info = initInfoDict(car);
     let imgPaths = getImagePaths();
     insertImages(imgPaths);
     insertDescriptions();    
@@ -29,6 +30,7 @@ const getPID = ()=>
         if (kv[0] == "pid")
         {
             return kv[1];
+            console.log(kv[1])
         }
     }
     return -1;  
