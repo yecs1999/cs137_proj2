@@ -15,7 +15,8 @@
             <br/>
             <h2 id="product">Placeholder Product Name</h2>
             <div style="text-align: center;">
-            <form id="checkoutForm" action="">
+            <form id="checkoutForm" action="send.php" method="POST">
+                <input type="hidden" id="carname" name="model">
                 <strong>Name:</strong> First:
                 <input type="text" name="firstname" value="" size=15>
                 Last:
@@ -54,7 +55,7 @@
                 CVV:
                 <input type="text" name="cvv" id="cvv" value="" size=2 onkeypress="return isDigit(event, 'Payment Info')">
                 <br/>
-                <input type="button" name="submit" id="submit" value="Submit" onClick="submitCheckout()">
+                <button onclick="document.getElementById('carname').value = productToString()">submit</button>
             </form>
             </div>
         </div>

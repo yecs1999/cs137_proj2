@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2020 at 09:47 AM
+-- Generation Time: May 03, 2020 at 02:31 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -115,6 +115,25 @@ INSERT INTO `carimages` (`pid`, `main_img`, `sub_img`, `int_img`) VALUES
 (18, './img/minivan/cmi10/1.jpg', './img/minivan/cmi10/2.jpg', './img/minivan/cmi10/3.jpg'),
 (19, './img/minivan/cmi11/1.jpg', './img/minivan/cmi11/2.jpg', './img/minivan/cmi11/3.jpg');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `model` varchar(300) NOT NULL,
+  `order_id` int(30) NOT NULL,
+  `fullname` varchar(300) NOT NULL,
+  `phone` varchar(100) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `method` varchar(30) NOT NULL,
+  `country` varchar(200) DEFAULT NULL,
+  `address` varchar(200) DEFAULT NULL,
+  `card` int(40) NOT NULL,
+  `cvv` int(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
@@ -136,6 +155,22 @@ ALTER TABLE `cardata`
 --
 ALTER TABLE `carimages`
   ADD KEY `pid` (`pid`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
