@@ -1,3 +1,12 @@
+<?php
+    include 'database.php';
+    $pid = $_GET['pid'];
+    $car = "SELECT * FROM cardata WHERE cardata.pid = :id ";
+    $carstmt = $dbcon->prepare($car);
+    $carstmt->bindParam(':id', $pid, PDO::PARAM_INT);
+    $carstmt->execute();
+    $rs_car = $carstmt->fetchAll()[0];
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +22,7 @@
         </div>
         <div class="checkout">
             <br/>
-            <h2 id="product">Placeholder Product Name</h2>
+            <h2 id="product">ORDER FOR: <?=$rs_car['make']?> <?=$rs_car['model']?> <?=$rs_car['trim']?></h2>
             <div style="text-align: center;">
             <form id="checkoutForm" action="send.php" method="POST">
                 <input type="hidden" id="carname" name="model">
@@ -37,15 +46,15 @@
                     <option value="pickup">Pickup</option>
                 </select>
                 <br/>
-                <strong>Shipping Address:</strong> 
+                <strong>Shipping Address:</strong>
                 <br/>
                 Street Address:
                 <input type="text" name="address" id="address" value="" size=30>
                 <br/>
                 Postal Code:
-                <input type="text" name="zip" id="zip" value="" size=6 onblur= "getPlace(this.value)">
+                <input type="text" name="zip" id="zip" value="" size=6 onblur="getPlace(this.value)">
                 <br/>
-                Country: 
+                Country:
                 <input type="text" name="country" id="country" value="" size=20>
                 <br/>
                 City:
@@ -57,13 +66,19 @@
                 <input type="text" name="card" id="card" value="" size=16 onkeypress="return isDigit(event, 'Payment Info')">
                 CVV:
                 <input type="text" name="cvv" id="cvv" value="" size=2 onkeypress="return isDigit(event, 'Payment Info')">
-                <br/>
-                <button onclick="document.getElementById('carname').value = productToString()">submit</button>
+                <br/><br/>
+                <strong>TOTAL COST:</strong> <bdi id="totalCost">NULL</bdi>
+                <br/><br/>
+                <button onclick="document.getElementById('carname').value = productToString()">PURCHASE</button>
             </form>
             </div>
         </div>
+        <script type="text/javascript">var make="<?=$rs_car['make']?>"; var model="<?=$rs_car['model']?>"; var trim="<?=$rs_car['trim']?>"; var price=<?=$rs_car['price']?>;</script>
         <script type="text/javascript" src="checkout.js"></script>
         <script type = "text/javascript" src = "zip_code_autofill.js"></script>
     </body>
 
 </html>
+<?php
+    $carstmt->closeCursor();
+?>

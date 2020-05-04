@@ -1,8 +1,12 @@
+const priceFormat = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD', minimumFractionDigits: 2});
+
 var product;
 var method;
 var address;
+var tax = 0;
 
-const getProduct = ()=>
+
+/*const getProduct = ()=>
 {
     let query = window.location.search.substring(1);
     let query_list = query.split("&");
@@ -25,6 +29,17 @@ function productToString() {
 function setupCheckout() {
     product = getProduct();
     document.getElementById("product").innerText = "Order for " + productToString();
+}*/
+function setupCheckout() {
+    getFinalPrice();
+    document.getElementById("zip").addEventListener("blur", getFinalPrice);
+}
+
+function productToString() {
+    var str = make + " ";
+    str += model + " ";
+    str += trim;
+    return str;
 }
 
 function isDigit(event, fieldName) {
@@ -135,6 +150,15 @@ function emailCheck(email) {
     return false;
 }
 
+function getFinalPrice() {
+    fillAddress();
+    if(address[4].value === "") {
+        document.getElementById("totalCost").innerText = priceFormat.format(price);
+    } else {
+        getTax(address[4].value);
+    }
+}
+
 function submitCheckout() {
     //product = document.getElementById("product").innerText;
     var checkoutForm = document.getElementById("checkoutForm");
@@ -166,4 +190,32 @@ function submitCheckout() {
             + "%0A%0AThank you for shopping from Vending Cars!%0A%0A";
         window.location.href = composeEmail;
     }
+}
+
+function getTax(zip)
+{
+  if (window.XMLHttpRequest)
+  {  // IE7+, Firefox, Chrome, Opera, Safari
+     var xhr = new XMLHttpRequest();
+  }
+  else
+  {  // IE5, IE6
+     var xhr = new ActiveXObject ("Microsoft.XMLHTTP");
+  }
+
+  // Register the embedded handler function
+  // This function will be called when the server returns
+  // (the "callback" function)
+  xhr.onreadystatechange = function ()
+  { // 4 means finished, and 200 means okay.
+    if (xhr.readyState == 4 && xhr.status == 200)
+    {
+        var result = xhr.responseText;
+        tax = parseFloat(result);
+        document.getElementById("totalCost").innerText = priceFormat.format(price + price * tax);
+    }
+  }
+  // Call the response software component
+  xhr.open ("GET", "getTaxRate.php?zip=" + zip);
+  xhr.send (null);
 }

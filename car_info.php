@@ -28,7 +28,7 @@
         </div>
         <div class="description">
             <table id="description_table">
-                <thead><tr><th colspan=2>Specifications</th></tr></thead> 
+                <thead><tr><th colspan=2>Specifications</th></tr></thead>
                 <tbody>
                     <tr><td>Category</td><td><?=$rs_car['category']?></td></tr>
                     <tr><td>Make</td><td><?=$rs_car['make']?></td></tr>
@@ -47,7 +47,7 @@
         </div>
         <script>
             function orderNowOnClick(){
-                window.open("./checkout.html?make=<?=$rs_car['make']?>&model=<?=$rs_car['model']?>&trim=<?=$rs_car['trim']?>");
+                window.open("./checkout.php?pid=<?=$rs_car['pid']?>");
             }
         </script>
         <div class="buttonDiv">
