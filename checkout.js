@@ -33,6 +33,8 @@ function setupCheckout() {
 function setupCheckout() {
     getFinalPrice();
     document.getElementById("zip").addEventListener("blur", getFinalPrice);
+    getFinalPlace()
+    document.getElementById("zip").addEventListener("blur", getFinalPlace);
 }
 
 function productToString() {
@@ -217,5 +219,56 @@ function getTax(zip)
   }
   // Call the response software component
   xhr.open ("GET", "getTaxRate.php?zip=" + zip);
+  xhr.send (null);
+}
+
+function clearAddressFields(){
+    document.getElementById("city").innerText = "";
+    document.getElementById("state").innerText = "";
+    document.getElementById("country").innerText = "";
+}
+
+
+function getFinalPlace() {
+    fillAddress();
+    if(address[4].value != ""){
+        getPlace(address[4].value);
+    }
+}
+
+function getPlace (zip)
+{
+  if (window.XMLHttpRequest)
+  {  // IE7+, Firefox, Chrome, Opera, Safari
+     var xhr = new XMLHttpRequest();
+  }
+  else
+  {  // IE5, IE6
+     var xhr = new ActiveXObject ("Microsoft.XMLHTTP");
+  }
+
+  // Register the embedded handler function
+  // This function will be called when the server returns
+  // (the "callback" function)
+  xhr.onreadystatechange = function ()
+  { // 4 means finished, and 200 means okay.
+    if (xhr.readyState == 4 && xhr.status == 200)
+    { // Data should look like "Irvine, California"
+        var result = xhr.responseText;
+        var place = result.split (', ');
+
+        document.getElementById ("city").value = place[0].trim();
+        document.getElementById ("state").value = place[1].trim();
+        console.log(place[0].trim())
+        if ((place[0].trim() != "")){
+            document.getElementById ("country").value = "United States";
+        }
+        else{
+            document.getElementById ("country").value = "";
+        }
+    }
+  }
+  // Call the response software component
+  xhr.open ("GET", "getCityState.php?zip=" + zip);
   xhr.send (null);
 }

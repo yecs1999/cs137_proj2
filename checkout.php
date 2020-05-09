@@ -52,7 +52,7 @@
                 <input type="text" name="address" id="address" value="" size=30>
                 <br/>
                 Postal Code:
-                <input type="text" name="zip" id="zip" value="" size=6 onblur="getPlace(this.value)">
+                <input type="text" name="zip" id="zip" value="" size=6>
                 <br/>
                 Country:
                 <input type="text" name="country" id="country" value="" size=20>
@@ -80,7 +80,6 @@
         </div>
         <script type="text/javascript">var make="<?=$rs_car['make']?>"; var model="<?=$rs_car['model']?>"; var trim="<?=$rs_car['trim']?>"; var price=<?=$rs_car['price']?>;</script>
         <script type="text/javascript" src="checkout.js"></script>
-        <script type = "text/javascript" src = "zip_code_autofill.js"></script>
     </body>
 
 </html>
