@@ -73,6 +73,11 @@
             </form>
             </div>
         </div>
+        <div style="text-align:center">
+        <form action="index.php">
+            <input type="submit" value="Go back to index" />
+        </form>
+        </div>
         <script type="text/javascript">var make="<?=$rs_car['make']?>"; var model="<?=$rs_car['model']?>"; var trim="<?=$rs_car['trim']?>"; var price=<?=$rs_car['price']?>;</script>
         <script type="text/javascript" src="checkout.js"></script>
         <script type = "text/javascript" src = "zip_code_autofill.js"></script>

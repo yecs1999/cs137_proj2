@@ -49,4 +49,7 @@
             <?php } ?>
             Card Number: <?=$card?> CVV: <?=$cvv?>
         </div>
+        <form action="index.php">
+            <input type="submit" value="Go back to index" />
+        </form>
     </body>
